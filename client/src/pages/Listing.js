@@ -62,10 +62,7 @@ fetchListing();
       {error &&  <p className='text-center text-2xl'>Something Went Wrong</p>} 
         {formdata && !loading && !error &&
        (
-
-              <SwiperSlide 
-                
-        <div>
+           <div>
            <Swiper navigation>
             {formdata && formdata.imageUrl.map((url) => (
 
