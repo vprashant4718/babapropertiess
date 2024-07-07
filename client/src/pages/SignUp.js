@@ -52,8 +52,8 @@ export default function SignUp(next) {
     <div  className='flex flex-col justify-center mr-auto w-auto  h-full pb-40 sm:h-full pt-20 sm:pb-24'>
       <h1 className='text-3xl text-center font-bold sm:py-3 px-3' >SignUp</h1>
       <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center gap-4 p-2 sm:p-3'>
-        <input type="text" id='username' placeholder="Username" className='border rounded-lg p-3 w-80  focus:outline-none sm:w-96' onChange={handleOnChange} />
-        <input type="email" id='email'  placeholder="email" className='border rounded-lg p-3 w-80  focus:outline-none sm:w-96' onChange={handleOnChange} />
+        <input type="text" id='username' placeholder="Username" className='border rounded-lg p-3 w-80 lowercase focus:outline-none sm:w-96' onChange={handleOnChange} />
+        <input type="email" id='email'  placeholder="email" className='border rounded-lg p-3 w-80 lowercase focus:outline-none sm:w-96' onChange={handleOnChange} />
         <input type="password" id='password' placeholder="password" className='border rounded-lg p-3 w-80  focus:outline-none sm:w-96' onChange={handleOnChange} />
         <button disabled = {Loading}  className='border rounded-lg p-2 bg-blue-950 text-white font-bold w-80  sm:w-96'>{Loading ? "Loading..." : "Sign Up"} </button>
 
