@@ -62,17 +62,15 @@ fetchListing();
       {error &&  <p className='text-center text-2xl'>Something Went Wrong</p>} 
         {formdata && !loading && !error &&
        (
+
+              <SwiperSlide 
+                
         <div>
            <Swiper navigation>
             {formdata && formdata.imageUrl.map((url) => (
-              <SwiperSlide key={url}>
-                <div
-                  className='h-[550px]'
-                  style={{
-                    background: `url(${url}) center no-repeat`,
-                    backgroundSize: 'cover',
-                  }}
-                ></div>
+
+              <SwiperSlide key={url} className="flex flex-row justify-center items-center m-auto  w-auto" >
+<img src={url.imageUrl} key={url} className="object-contain m-auto w-auto max-h-[70vh]" />
               </SwiperSlide>
             ))}
           </Swiper>
