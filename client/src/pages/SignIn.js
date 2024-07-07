@@ -51,7 +51,7 @@ try {
       <h1 className='text-3xl text-center font-bold py-3 px-3'>Sign In</h1>
       <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center gap-4'>
         
-        <input type="email" id='email'  placeholder="email" className='border rounded-lg p-3 w-80  focus:outline-none sm:w-96' onChange={handleOnChange} />
+        <input type="email" id='email'  placeholder="email" className='border rounded-lg p-3 w-80 lowercase focus:outline-none sm:w-96' onChange={handleOnChange} />
         <input type="password" id='password' placeholder="password" className='border rounded-lg p-3 w-80  focus:outline-none sm:w-96' onChange={handleOnChange} />
         <button disabled = {loading} className='border rounded-lg p-2 bg-blue-950 text-white font-bold w-80  sm:w-96'>{loading ? "loading..." : "Sign In"   } </button>
 
