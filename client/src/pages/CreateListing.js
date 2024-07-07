@@ -215,7 +215,7 @@ navigate(`/listing/${data._id}`);
         </p>
 
         <div className='flex flex-row items-center flex-1 gap-4'>
-            <input type="file" className='rounded w-full p-3 border border-gray-300' onChange={(e)=>setfiles(e.target.files)} accept='images/*' multiple/>
+            <input type="file" className='rounded w-full p-3 border border-gray-300' onChange={(e)=>setfiles(e.target.files)} accept='images/*' multiple='multiple'/>
 
             <button type='button' disabled={upload} onClick={handleImageSubmit} className='uppercase text-green-600 border  border-green-600 p-3 rounded font-semibold'>{upload ? 'uploading' : 'upload'}</button>
         </div>
