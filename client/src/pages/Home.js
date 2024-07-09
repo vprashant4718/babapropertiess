@@ -76,7 +76,7 @@ export default function Home() {
         <Swiper navigation>
           {rentListing &&
             rentListing.length > 0 &&
-            renteListing.map((url) => (
+            rentListing.map((url) => (
               <SwiperSlide className="flex flex-row justify-center items-center m-auto  w-auto" >
                 <img src={url.imageUrl[0]} key={url} className="object-contain m-auto w-auto max-h-[70vh]" />
               </SwiperSlide>
