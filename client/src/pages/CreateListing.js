@@ -3,6 +3,7 @@ import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/st
 import {app} from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import LoadingBar from 'react-top-loading-bar'
 
 export default function CreateListing() {
     const navigate = useNavigate();
@@ -125,13 +126,14 @@ export default function CreateListing() {
     
 const handleSubmit=async(e)=>{
     e.preventDefault();
-    console.log(currentUser._id)
     try {
         
         if(formdata.imageUrl.length < 1) return setImageUploadError('You have to upload minimum 1 image')
         if(formdata.imageUrl.length > 6) return setImageUploadError('You can upload max 6 image')
         setloading(true);
-        seterror(false)
+        seterror(false);
+
+        setProgress(30);
     const res = await fetch('/api/listing/create',{
         method: 'POST',
         headers:{
@@ -142,12 +144,13 @@ const handleSubmit=async(e)=>{
             userRef: currentUser._id
         }),
     })
-
+    setProgress(70);
     const data = await res.json();
     setloading(false);
     if(data.success === false){
         seterror(data.message);
     }
+        setProgress(100);
 navigate(`/listing/${data._id}`);
 
 } catch (error) {
@@ -156,6 +159,12 @@ navigate(`/listing/${data._id}`);
 }
   return (
     <div className='flex flex-col justify-center items-center text-center gap-6 pt-24 '>
+      <LoadingBar
+        height={5}
+        color='#1F51FF'
+        className='' progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
         <h1 className='text-center text-3xl font-bold mb-8'>Create Listing</h1>
     <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center gap-4 sm:flex-row' >
     <div className='flex flex-col justify-center items-center flex-1'>
