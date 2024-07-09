@@ -5,19 +5,23 @@ import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import ListingItem from "../Components/ListingItem";
+import LoadingBar from 'react-top-loading-bar'
 
 export default function Home() {
   SwiperCore.use([Navigation]);
 
   const [saleListing, setsaleListing] = useState([]);
   const [rentListing, setrentListing] = useState([]);
+  const [progress, setProgress] = useState([]);
 
 
   useEffect(() => {
     const fetchSaleListing = async () => {
       try {
+        setProgress(15);
         const res = await fetch(`/api/listing/get?type=sale&limit=4`);
         const data = await res.json();
+        setProgress(40);
         setsaleListing(data);
         fetchRentListing();
       } catch (error) {
@@ -27,9 +31,12 @@ export default function Home() {
 
     const fetchRentListing = async () => {
       try {
+        setProgress(75);
         const res = await fetch(`/api/listing/get?type=rent&limit=4`);
         const data = await res.json();
+        setProgress(100);
         setrentListing(data);
+        
       } catch (error) {
         console.log(error);
       }
@@ -40,6 +47,11 @@ export default function Home() {
 
   return (
     <div className="pt-24"> 
+     <LoadingBar
+        color='#1F51FF'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <div className="p-3">
         <h1 className="text-3xl font-bold">
           Find Your
