@@ -49,8 +49,7 @@ export default function Home() {
     <div className="pt-24"> 
      <LoadingBar
         height={5}
-        color='#1F51FF'
-        className='mt-[5%]' progress={progress}
+        color='#1F51FF' progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
       <div className="p-3">
