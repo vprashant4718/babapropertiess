@@ -18,10 +18,10 @@ export default function Home() {
   useEffect(() => {
     const fetchSaleListing = async () => {
       try {
-        setProgress(15);
+        setProgress(30);
         const res = await fetch(`/api/listing/get?type=sale&limit=4`);
         const data = await res.json();
-        setProgress(40);
+        setProgress(50);
         setsaleListing(data);
         fetchRentListing();
       } catch (error) {
@@ -74,9 +74,9 @@ export default function Home() {
 
       <div>
         <Swiper navigation>
-          {saleListing &&
-            saleListing.length > 0 &&
-            saleListing.map((url) => (
+          {rentListing &&
+            rentListing.length > 0 &&
+            renteListing.map((url) => (
               <SwiperSlide className="flex flex-row justify-center items-center m-auto  w-auto" >
                 <img src={url.imageUrl[0]} key={url} className="object-contain m-auto w-auto max-h-[70vh]" />
               </SwiperSlide>
