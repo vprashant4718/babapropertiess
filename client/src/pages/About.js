@@ -5,7 +5,7 @@ export default function About() {
   <div className="pt-24"> 
       <div className="p-3">
         <h1 className="text-3xl font-bold">
-          Baba Properties & Builders
+          Verma Builders
         </h1>
         <br />
         <p className="text-slate-600 font-semibold text-sm lg:w-[70vw]" > 
