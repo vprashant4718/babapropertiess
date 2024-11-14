@@ -57,7 +57,7 @@ export default function Home() {
           Find Your
           <span className="text-slate-500"> Dream Home</span>
           <br />
-          with Baba Properties & Builders
+          with Verma Builders
         </h1>
         <br />
         <p className="text-slate-600 font-semibold text-sm lg:w-[70vw]">
